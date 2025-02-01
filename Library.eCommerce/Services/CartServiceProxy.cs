@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -51,15 +51,15 @@ namespace Library.eCommerce.Services
         
         public Product AddOrUpdate(Cart item, Product prod, int i=0)
         {
-            if(i<=prod.Amount+item.Num)
+            if(i<=prod.Amount+item.Num)//making sure the i "amount" exist
             {
-                if (item.Id == 0)
+                if (item.Id == 0) //the id "number on side"
                 {
                     item.Id = LastKey + 1;
                     Items.Add(item);
                 }
-                prod.Amount -=i;
-                item.Num = i;
+                prod.Amount -=i;//subtract the amount we want for the total amount in inventory
+                item.Num = i; //send i to be what is in cart
             }
             if(item.Num==0)
             {
@@ -74,10 +74,10 @@ namespace Library.eCommerce.Services
             { 
                 return null;
             }
-            Cart?item = Items.FirstOrDefault(p => p.Id == x);
+            Cart?item = Items.FirstOrDefault(p => p.Id == x);//if id of p matches x
             var product = prod.FirstOrDefault(p => p?.Name == item?.Name);
-            product.Amount += item.Num;
-            Items.Remove(item);
+            product.Amount += item.Num;//add the amount back
+            Items.Remove(item);//remove from cart
             if(item.Num==0)
             {
                 Delete(item.Id);
@@ -90,8 +90,8 @@ namespace Library.eCommerce.Services
             {
                 return null;
             }
-            Cart? items = Items.FirstOrDefault(c => c.Id == id);
-            Items.Remove(items);
+            Cart? items = Items.FirstOrDefault(c => c.Id == id);//if matches set to items
+            Items.Remove(items);//delete items
             return items;
         }
         public void Bill()
