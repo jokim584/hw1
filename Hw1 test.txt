@@ -1,0 +1,62 @@
+Welcome to Amazon!
+C. Create new inventory item
+R. Read all inventory items
+U. Update an inventory item
+D. Delete an inventory item
+A. Add an item to shopping cart
+S. Read all shopping cart
+N. Update the number of item in cart
+G. Return all of a product
+Q. Quit and see your price
+c
+cats
+25.50
+20
+c
+dogs
+30
+25
+c
+hamster
+15
+100
+c
+bird
+20
+30
+r
+a
+1
+5
+a
+2
+3
+a
+3
+23
+a
+4
+3
+s
+r
+u 
+1
+fish
+5
+1000
+r
+s
+n //issue with this?
+1
+1
+s
+r
+d
+1
+r
+s
+g
+2
+r
+s
+q
